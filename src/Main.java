@@ -6,30 +6,23 @@ public class Main {
         Random rnd = new Random();
         Scanner in = new Scanner(System.in);
 
-        int [] dataPoints = new int[100];
-        int min;
-        int max;
+        double [] dataPoints = new double[100];
 
         for (int i = 0; i < dataPoints.length; i++)
         {
             dataPoints[i] = rnd.nextInt(100) + 1;
         }
+        System.out.println("average of data points is " + getAverage(dataPoints));
+    }
 
-        min = dataPoints[0];
-        max = dataPoints[0];
+    public static double getAverage(double[] values)
+    {
+        double total = 0;
 
-        for (int i = 0; i < dataPoints.length; i++)
+        for (int i = 0; i < values.length; i++)
         {
-            if (dataPoints[i] < min)
-            {
-                min = dataPoints[i];
-            }
-            else if (dataPoints[i] > max)
-            {
-                max = dataPoints[i];
-            }
+            total += values[i];
         }
-
-        System.out.println("the min is " + min + "\nthe max is " + max);
+        return total / values.length;
     }
 }
