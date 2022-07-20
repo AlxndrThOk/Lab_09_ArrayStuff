@@ -1,21 +1,25 @@
 import java.util.Random;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
         Random rnd = new Random();
+        Scanner in = new Scanner(System.in);
 
         int [] dataPoints = new int[100];
-        double total = 0;
-        double average;
+        int target;
+        int counter = 0;
+
+        target = SafeInput.getInt(in, "what value would you like to count?");
 
         for (int i = 0; i < dataPoints.length; i++)
         {
             dataPoints[i] = rnd.nextInt(100) + 1;
-            System.out.print(dataPoints[i] + " | ");
-            total += dataPoints[i];
+            if(dataPoints[i] == target)
+            {
+                counter += 1;
+            }
         }
-        average = total / 100;
-
-        System.out.println("\nthe total is " + total + "\nthe average is " + average);
+        System.out.println("the number " + target + " was found " + counter + " times");
     }
 }
