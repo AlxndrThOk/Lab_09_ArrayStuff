@@ -8,18 +8,23 @@ public class Main {
 
         int [] dataPoints = new int[100];
         int target;
-        int counter = 0;
+        boolean done = false;
 
-        target = SafeInput.getInt(in, "what value would you like to count?");
+        target = SafeInput.getInt(in, "what value would you like to find?");
 
         for (int i = 0; i < dataPoints.length; i++)
         {
             dataPoints[i] = rnd.nextInt(100) + 1;
             if(dataPoints[i] == target)
             {
-                counter += 1;
+                System.out.println("the number " + target + " was found at pos " + i);
+                done = true;
+                break;
             }
         }
-        System.out.println("the number " + target + " was found " + counter + " times");
+        if (!done)
+        {
+            System.out.println("the number " + target + " was not found");
+        }
     }
 }
