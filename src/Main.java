@@ -7,24 +7,29 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         int [] dataPoints = new int[100];
-        int target;
-        boolean done = false;
-
-        target = SafeInput.getInt(in, "what value would you like to find?");
+        int min;
+        int max;
 
         for (int i = 0; i < dataPoints.length; i++)
         {
             dataPoints[i] = rnd.nextInt(100) + 1;
-            if(dataPoints[i] == target)
+        }
+
+        min = dataPoints[0];
+        max = dataPoints[0];
+
+        for (int i = 0; i < dataPoints.length; i++)
+        {
+            if (dataPoints[i] < min)
             {
-                System.out.println("the number " + target + " was found at pos " + i);
-                done = true;
-                break;
+                min = dataPoints[i];
+            }
+            else if (dataPoints[i] > max)
+            {
+                max = dataPoints[i];
             }
         }
-        if (!done)
-        {
-            System.out.println("the number " + target + " was not found");
-        }
+
+        System.out.println("the min is " + min + "\nthe max is " + max);
     }
 }
